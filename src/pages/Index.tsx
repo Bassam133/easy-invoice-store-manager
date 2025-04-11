@@ -1,13 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { AppLayout } from "@/components/layout/AppLayout";
+import Dashboard from "./Dashboard";
+import { Route, Routes } from "react-router-dom";
+import Products from "./Products";
+import Sales from "./Sales";
+import Invoices from "./Invoices";
+import NotFound from "./NotFound";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <AppLayout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/sales" element={<Sales />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AppLayout>
   );
 };
 
